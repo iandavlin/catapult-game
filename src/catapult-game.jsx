@@ -457,7 +457,7 @@ export default function CG(){
           for(let d=0;d<15;d++)debris.push({x:tp.x,y:tp.y,vx:(Math.random()-.5)*8,vy:(Math.random()-.5)*8,sz:4+Math.random()*5,color:PC[pi],life:.6+Math.random()*.4});
           floatTexts.push({x:tp.x,y:tp.y-30,text:"CRUSHED!",color:PC[1-pi],sz:14,life:1.5});break;}}
         // Ball kill
-        if(!cd[pi])for(const ball of g.balls){if(ball.settled)continue;
+        if(!cd[pi])for(const ball of g.balls){if(ball.settled||ball.player===pi)continue;
           const bdx=ball.x-Math.max(tr.x,Math.min(ball.x,tr.x+tr.w)),bdy=ball.y-Math.max(tr.y,Math.min(ball.y,tr.y+tr.h));
           if(bdx*bdx+bdy*bdy<BR*BR){cd[pi]=true;ntp[pi]=pi===0?{...T1_START}:{...T2_START};ns[1-pi]+=P.tankKillPts;
             for(let d=0;d<20;d++)debris.push({x:tp.x,y:tp.y,vx:(Math.random()-.5)*10,vy:(Math.random()-.5)*10,sz:4+Math.random()*6,color:PC[pi],life:.7+Math.random()*.4});
