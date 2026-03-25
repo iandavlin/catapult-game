@@ -13,7 +13,7 @@ const DEF={gv:0.15,bnc:0.78,fr:0.999,ff:0.95,sc:0.055,sb:0.7,pm:0.34,
   numBlocks:22,numGrey:6,numPowerups:4,greyHits:3,
   ceilBlocks:2,floorBlocks:3,centerBlocks:6,barrierH:5,ceilBarrierH:5,
   fallGrav:0.12,fallMaxSpd:8,fallDamp:0.3,puVel:4,
-  roundColored:3,winScore:500,tankKillPts:100,maxAmmo:3,puSpread:5,tankSpd:4};
+  roundColored:3,winScore:500,tankKillPts:100,maxAmmo:3,puSpread:5,tankSpd:4,mirrorField:1};
 
 const LOGO="data:image/png;base64,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";
 
@@ -96,6 +96,26 @@ function placeGreyLeft(bl,sL,sR,floorY,ceilY,maxHits){
       return{rects};}}
   return null;
 }
+function placeColoredRight(bl,sL,sR,floorY,ceilY){
+  const s=rS(),rot=Math.floor(Math.random()*4),g=nGid();
+  for(let t=0;t<80;t++){const px=Math.round((sL+Math.random()*(sR-sL-BS*5))/BS)*BS;
+    const d=gravDrop(s,px,rot,bl,floorY,ceilY);
+    if(d){let ok=true;for(const r of d){if(r.x<sL||r.x+r.w>sR){ok=false;break;}}
+      if(ok){const col=teamCol(1);for(const r of d)bl.push({...r,color:col,player:-1,id:Math.random(),groupId:g,isGrey:false,vy:0});
+        return{rects:d,shape:s,rot};}}}
+  return null;
+}
+function placeGreyRight(bl,sL,sR,floorY,ceilY,maxHits){
+  const s=rS(),rot=Math.floor(Math.random()*4),g=nGid();const cells=getC(s,rot);
+  for(let t=0;t<80;t++){const px=Math.round((sL+Math.random()*(sR-sL-BS*5))/BS)*BS;
+    const py=Math.round((ceilY+Math.random()*(floorY-ceilY-BS*3))/BS)*BS;
+    const rects=cells.map(([cx,cy])=>({x:px+cx*BS,y:py+cy*BS,w:BS,h:BS}));let ok=true;
+    for(const r of rects){if(r.x<sL||r.x+r.w>sR||r.y<ceilY||r.y+r.h>floorY){ok=false;break;}if(overlaps(r,bl)){ok=false;break;}}
+    if(ok){const col=greyCol(maxHits,maxHits);
+      for(const r of rects)bl.push({...r,color:col,player:-1,id:Math.random(),groupId:g,isGrey:true,vy:0,hits:maxHits});
+      return{rects};}}
+  return null;
+}
 
 function genField(cfg){
   const bl=[];const nb=cfg.numBlocks,ng=cfg.numGrey,np=cfg.numPowerups;
@@ -107,23 +127,30 @@ function genField(cfg){
   const cbarGid=nGid();
   for(let row=0;row<cfg.ceilBarrierH;row++){const by=CEIL_Y+BS*row;if(by+BS>floorY)continue;
     bl.push({x:bx0,y:by,w:BS,h:BS,color:"#1a2a3a",player:-1,id:Math.random(),groupId:cbarGid,isGrey:true,isBarrier:true,vy:0,hits:999});}
+  const mirror=cfg.mirrorField;
   const halfG=Math.ceil(ng/2);
   for(let i=0;i<halfG;i++){const res=placeGreyLeft(bl,sL,centerX-BS,floorY,ceilY,cfg.greyHits);
-    if(res){const mr=mirrorRects(res.rects);const gR=nGid();let ok=true;
+    if(mirror){if(res){const mr=mirrorRects(res.rects);const gR=nGid();let ok=true;
       for(const r of mr){if(overlaps(r,bl)){ok=false;break;}}
       if(ok)for(const r of mr)bl.push({...r,color:greyCol(cfg.greyHits,cfg.greyHits),player:-1,id:Math.random(),groupId:gR,isGrey:true,vy:0,hits:cfg.greyHits});}}
+    else{placeGreyRight(bl,centerX+BS,sR,floorY,ceilY,cfg.greyHits);}}
   const halfB=Math.ceil(nb/2);
   for(let i=0;i<halfB;i++){const res=placeColoredLeft(bl,sL,centerX-BS,floorY,ceilY);
-    if(res){const mr=mirrorRects(res.rects);const gR=nGid();const col=teamCol(1);let ok=true;
+    if(mirror){if(res){const mr=mirrorRects(res.rects);const gR=nGid();const col=teamCol(1);let ok=true;
       for(const r of mr){if(r.x<centerX+BS||r.x+r.w>sR){ok=false;break;}if(overlaps(r,bl)){ok=false;break;}}
       if(ok)for(const r of mr)bl.push({...r,color:col,player:-1,id:Math.random(),groupId:gR,isGrey:false,vy:0});}}
+    else{placeColoredRight(bl,centerX+BS,sR,floorY,ceilY);}}
   const halfPU=Math.ceil(np/2);let puP=0;
   for(let i=0;i<60&&puP<halfPU;i++){const px=Math.round((sL+Math.random()*(centerX-BS-sL-BS))/BS)*BS;
     const py=Math.round((ceilY+Math.random()*(floorY-ceilY-BS))/BS)*BS;const r={x:px,y:py,w:BS,h:BS};
     if(r.x>=sL&&r.x+r.w<=centerX-BS&&r.y>=ceilY&&r.y+r.h<=floorY&&!overlaps(r,bl)){
       bl.push({...r,color:"#ff00ff",player:-1,id:Math.random(),groupId:nGid(),isGrey:true,hasPowerup:true,vy:0,hits:1});
-      const mx=FW-r.x-r.w;const mr2={x:mx,y:r.y,w:BS,h:BS};
-      if(!overlaps(mr2,bl))bl.push({...mr2,color:"#ff00ff",player:-1,id:Math.random(),groupId:nGid(),isGrey:true,hasPowerup:true,vy:0,hits:1});
+      if(mirror){const mx=FW-r.x-r.w;const mr2={x:mx,y:r.y,w:BS,h:BS};
+        if(!overlaps(mr2,bl))bl.push({...mr2,color:"#ff00ff",player:-1,id:Math.random(),groupId:nGid(),isGrey:true,hasPowerup:true,vy:0,hits:1});}
+      else{const px2=Math.round((centerX+BS+Math.random()*(sR-centerX-BS-BS))/BS)*BS;
+        const py2=Math.round((ceilY+Math.random()*(floorY-ceilY-BS))/BS)*BS;const r2={x:px2,y:py2,w:BS,h:BS};
+        if(r2.x>=centerX+BS&&r2.x+r2.w<=sR&&r2.y>=ceilY&&r2.y+r2.h<=floorY&&!overlaps(r2,bl))
+          bl.push({...r2,color:"#ff00ff",player:-1,id:Math.random(),groupId:nGid(),isGrey:true,hasPowerup:true,vy:0,hits:1});}
       puP++;}}
   return bl;
 }
@@ -132,12 +159,14 @@ function addRoundBlocks(bl,cfg,round,diff){
   const floorY=FLOOR_Y-cfg.floorBlocks*BS,ceilY=cfg.ceilBlocks*BS;
   const centerX=FW/2,margin=cfg.centerBlocks*BS,sL=margin,sR=FW-margin;
   const drops=[];
+  const mirror=cfg.mirrorField;
   let curGL=0;for(const b of bl){if(!b.isBarrier&&!b.hasPowerup&&b.isGrey&&b.x+b.w/2<centerX)curGL++;}
   const needG=Math.max(0,Math.ceil(cfg.numGrey/2)-Math.floor(curGL/3));
   for(let i=0;i<needG;i++){const res=placeGreyLeft(bl,sL,centerX-BS,floorY,ceilY,cfg.greyHits);
-    if(res){const mr=mirrorRects(res.rects);const gR=nGid();let ok=true;
+    if(mirror){if(res){const mr=mirrorRects(res.rects);const gR=nGid();let ok=true;
       for(const r of mr){if(overlaps(r,bl)){ok=false;break;}}
       if(ok)for(const r of mr)bl.push({...r,color:greyCol(cfg.greyHits,cfg.greyHits),player:-1,id:Math.random(),groupId:gR,isGrey:true,vy:0,hits:cfg.greyHits});}}
+    else{placeGreyRight(bl,centerX+BS,sR,floorY,ceilY,cfg.greyHits);}}
   const shadow=[...bl];const base=cfg.roundColored;
   const extraL=diff>0?diff:0,extraR=diff<0?-diff:0;
   let cSide=round%2;
@@ -147,14 +176,22 @@ function addRoundBlocks(bl,cfg,round,diff){
       const d=gravDrop(s,px,rot,shadow,floorY,ceilY);
       if(d){let ok=true;for(const r of d){if(r.x<sL||r.x+r.w>centerX-BS){ok=false;break;}}
         const topY=Math.min(...d.map(r=>r.y));if(topY<ceilY+BS)ok=false;
-        if(ok){const gL=nGid(),gR=nGid(),cL=teamCol(0),cR=teamCol(1);
+        if(ok){const gL=nGid(),cL=teamCol(0);
           drops.push({shape:s,targetX:px,targetRot:rot,groupId:gL,rects:d,col:cL});
           for(const r of d)shadow.push({...r,color:cL,player:-1,id:Math.random(),groupId:gL,isGrey:false,vy:0});
-          const mx=FW-px-BS*Math.max(...getC(s,rot).map(c2=>c2[0]))-BS;
-          const d2=gravDrop(s,mx,rot,shadow,floorY,ceilY);
-          if(d2){let ok2=true;for(const r of d2){if(r.x<centerX+BS||r.x+r.w>sR){ok2=false;break;}}
-            if(ok2){drops.push({shape:s,targetX:mx,targetRot:rot,groupId:gR,rects:d2,col:cR});
-              for(const r of d2)shadow.push({...r,color:cR,player:-1,id:Math.random(),groupId:gR,isGrey:false,vy:0});}}
+          if(mirror){const gR=nGid(),cR=teamCol(1);
+            const mx=FW-px-BS*Math.max(...getC(s,rot).map(c2=>c2[0]))-BS;
+            const d2=gravDrop(s,mx,rot,shadow,floorY,ceilY);
+            if(d2){let ok2=true;for(const r of d2){if(r.x<centerX+BS||r.x+r.w>sR){ok2=false;break;}}
+              if(ok2){drops.push({shape:s,targetX:mx,targetRot:rot,groupId:gR,rects:d2,col:cR});
+                for(const r of d2)shadow.push({...r,color:cR,player:-1,id:Math.random(),groupId:gR,isGrey:false,vy:0});}}}
+          else{const s2=rS(),rot2=Math.floor(Math.random()*4),gR=nGid(),cR=teamCol(1);
+            for(let t2=0;t2<80;t2++){const px2=Math.round((centerX+BS+Math.random()*(sR-centerX-BS-BS*5))/BS)*BS;
+              const d2=gravDrop(s2,px2,rot2,shadow,floorY,ceilY);
+              if(d2){let ok2=true;for(const r of d2){if(r.x<centerX+BS||r.x+r.w>sR){ok2=false;break;}}
+                const topY2=Math.min(...d2.map(r=>r.y));if(topY2<ceilY+BS)ok2=false;
+                if(ok2){drops.push({shape:s2,targetX:px2,targetRot:rot2,groupId:gR,rects:d2,col:cR});
+                  for(const r of d2)shadow.push({...r,color:cR,player:-1,id:Math.random(),groupId:gR,isGrey:false,vy:0});break;}}}}
           break;}}}}
   for(let i=0;i<extraL;i++){const s=rS(),rot=Math.floor(Math.random()*4),g=nGid(),col=teamCol(0);
     for(let t=0;t<40;t++){const px=Math.round((sL+Math.random()*(centerX-BS-sL-BS*5))/BS)*BS;
@@ -580,6 +617,14 @@ export default function CG(){
           {sl("Blocks","numBlocks",5,40,1)}{sl("Grey","numGrey",2,30,1)}{sl("Powerups","numPowerups",0,8,1)}
           {sl("Ceil","ceilBlocks",0,8,1)}{sl("Floor","floorBlocks",0,8,1)}{sl("Inward","centerBlocks",1,20,1)}
           {sl("Barrier","barrierH",0,12,1)}{sl("Ceil Bar","ceilBarrierH",0,12,1)}
+          <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
+            <span style={{fontSize:10,fontFamily:"monospace",color:"#aaa",width:75,textAlign:"right"}}>Layout</span>
+            <button onClick={()=>setPh(p=>({...p,mirrorField:p.mirrorField?0:1}))}
+              style={{flex:1,background:ph.mirrorField?"#1a3a1a":"#3a1a1a",color:ph.mirrorField?"#4caf50":"#ff5544",
+                border:"1px solid "+(ph.mirrorField?"#4caf50":"#ff5544"),padding:"3px 6px",fontSize:10,fontFamily:"monospace",cursor:"pointer",borderRadius:3}}>
+              {ph.mirrorField?"MIRRORED":"RANDOM"}
+            </button>
+          </div>
           <div style={{fontSize:10,color:"#666",fontFamily:"monospace",marginTop:4}}>ROUND DROPS</div>
           {sl("Rnd Color","roundColored",0,8,1)}
           <div style={{display:"flex",gap:6,marginTop:4}}>
